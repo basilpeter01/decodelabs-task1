@@ -491,3 +491,126 @@ h1, h2, h3 {
     font-style: italic;
     padding: 1rem 0;
 }
+
+/* ---- Course cards - selected state ---- */
+.content-card {
+    cursor: pointer;
+    position: relative;
+}
+
+.content-card.selected {
+    border-top-color: var(--mocha-mousse);
+    background-color: #fdf8f5;
+    box-shadow: 0 0 0 2px var(--mocha-mousse);
+}
+
+/* small category tag on each card */
+.card-tag {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 0.75rem;
+    font-family: var(--font-heading);
+    color: #999;
+    background: var(--moonlit-grey);
+    padding: 2px 8px;
+    border-radius: 20px;
+    text-transform: capitalize;
+}
+
+/* "✓ Enrolled" badge shown on selected cards */
+.card-check {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--mocha-mousse);
+}
+
+/* ---- Save bar (above the course grid) ---- */
+.save-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.save-bar span {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* success/error message after saving */
+.save-msg {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-height: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.save-msg.success { color: #2e7d32; }
+.save-msg.error   { color: #c62828; }
+
+/* ---- Enrolled courses in sidebar ---- */
+.enrolled-section {
+    margin-top: 2rem;
+}
+
+.enrolled-section h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark-charcoal);
+}
+
+.enrolled-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.enrolled-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-family: var(--font-heading);
+    background: var(--moonlit-grey);
+    padding: 0.4rem 0.7rem;
+    border-radius: 4px;
+    gap: 0.5rem;
+}
+
+.empty-msg {
+    color: #aaa;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* remove button inside enrolled list */
+.remove-btn {
+    background: none;
+    border: none;
+    color: #bbb;
+    cursor: pointer;
+    font-size: 0.75rem;
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: color 0.2s, background 0.2s;
+    flex-shrink: 0;
+}
+
+.remove-btn:hover {
+    color: #c62828;
+    background: #fde8e8;
+}
+
+/* panel section heading */
+.panel-section h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+}

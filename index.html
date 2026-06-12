@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DecodeLabs | Intern Portal</title>
+    <title>DecodeLabs </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
@@ -17,9 +17,8 @@
     <!-- Login / Register page -->
     <div id="loginPage" class="login-page">
         <div class="login-card">
-            <div class="login-logo">❖ DecodeLabs</div>
+            <div class="login-logo"> DecodeLabs</div>
 
-            <!-- tab switcher -->
             <div class="auth-tabs">
                 <button class="auth-tab active" data-tab="login">Login</button>
                 <button class="auth-tab" data-tab="register">Register</button>
@@ -39,7 +38,7 @@
                 <p id="loginError" class="form-response error login-error"></p>
             </form>
 
-            <!-- Register form (hidden by default) -->
+            <!-- Register form -->
             <form id="registerForm" class="auth-form hidden">
                 <div class="form-group">
                     <label for="regUsername">Username</label>
@@ -55,12 +54,12 @@
         </div>
     </div>
 
-    <!-- Main app (hidden until logged in) -->
+    <!-- Main app (shown after login) -->
     <div id="mainApp" class="hidden">
 
         <header class="app-header">
             <div class="header-logo">
-                <span>❖</span> DecodeLabs Intern
+                <span>❖</span> Course selection
             </div>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
                 <span></span>
@@ -69,7 +68,7 @@
             </button>
             <nav class="nav-container" id="navMenu">
                 <a href="#" class="nav-link active">Home</a>
-                <a href="#overview" class="nav-link">Overview</a>
+                <a href="#courses" class="nav-link">Courses</a>
                 <span id="welcomeText" class="nav-welcome"></span>
                 <button id="logoutBtn" class="logout-btn">Logout</button>
             </nav>
@@ -77,43 +76,67 @@
 
         <div class="grid-layout-container">
 
+            <!-- Sidebar -->
             <aside class="side-panel">
+
+                <!-- filter by category -->
                 <div class="panel-section">
-                    <h3>Project Tracks</h3>
+                    <h3>Browse By</h3>
                     <ul class="panel-list">
-                        <li><button class="filter-btn active" data-target="all">Show All</button></li>
-                        <li><button class="filter-btn" data-target="fundamentals">Fundamentals</button></li>
-                        <li><button class="filter-btn" data-target="pillars">Design Pillars</button></li>
+                        <li><button class="filter-btn active" data-target="all">All Courses</button></li>
+                        <li><button class="filter-btn" data-target="programming">Programming</button></li>
+                        <li><button class="filter-btn" data-target="ai-ml">AI / ML</button></li>
+                        <li><button class="filter-btn" data-target="data">Data</button></li>
+                        <li><button class="filter-btn" data-target="infrastructure">Infrastructure</button></li>
+                        <li><button class="filter-btn" data-target="security">Security</button></li>
                     </ul>
                 </div>
 
+                <!-- enrollment progress -->
                 <div class="panel-status-card">
-                    <p><strong>Progress</strong></p>
-                    <small>1 of 3 Pillars done</small>
+                    <p><strong>Enrolled</strong></p>
+                    <small id="enrolledCount">0 of 10 courses</small>
                     <div class="progress-bar-bg">
-                        <div class="progress-bar-fill"></div>
+                        <div class="progress-bar-fill" id="progressBar" style="width: 0%"></div>
                     </div>
                 </div>
+
+                <!-- enrolled courses list -->
+                <div class="enrolled-section">
+                    <h3>My Courses</h3>
+                    <ul class="enrolled-list" id="enrolledList">
+                        <li class="empty-msg">No courses saved yet.</li>
+                    </ul>
+                </div>
+
             </aside>
 
-            <main class="main-content" id="overview">
+            <!-- Main content -->
+            <main class="main-content" id="courses">
 
                 <section class="hero-section">
-                    <h1>Responsive Frontend Interface</h1>
-                    <p>Building a responsive web app using HTML, CSS, and basic JavaScript. No frameworks used.</p>
-                    <button class="cta-button">Get Started</button>
+                    <h1>Choose Your Learning Path</h1>
+                    <p>Select the courses you want to enroll in. Your choices are saved to your profile and can be
+                        updated anytime.</p>
                 </section>
 
-                <!-- Project cards loaded from GET /api/projects -->
+                <!-- save bar -->
+                <div class="save-bar">
+                    <span id="selectionCount">0 courses selected</span>
+                    <button class="cta-button" id="saveBtn">Save Courses</button>
+                </div>
+                <p id="saveMsg" class="save-msg"></p>
+
+                <!-- course cards loaded here by JS -->
                 <section class="content-grid" id="projectContainer">
-                    <p class="loading-text">Loading projects...</p>
+                    <p class="loading-text">Loading courses...</p>
                 </section>
 
             </main>
         </div>
 
         <footer class="app-footer">
-            <p>&copy; 2026 DecodeLabs Internship Program | Full Stack Development Track</p>
+            <p>2026 DecodeLabs Internship Program | Full Stack Development Track</p>
         </footer>
 
     </div>
