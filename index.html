@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecodeLabs | Intern Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Login / Register page -->
+    <div id="loginPage" class="login-page">
+        <div class="login-card">
+            <div class="login-logo">❖ DecodeLabs</div>
+
+            <!-- tab switcher -->
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
+
+            <!-- Login form -->
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="cta-button login-submit">Login</button>
+                <p id="loginError" class="form-response error login-error"></p>
+            </form>
+
+            <!-- Register form (hidden by default) -->
+            <form id="registerForm" class="auth-form hidden">
+                <div class="form-group">
+                    <label for="regUsername">Username</label>
+                    <input type="text" id="regUsername" placeholder="Choose a username" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" placeholder="At least 6 characters" required>
+                </div>
+                <button type="submit" class="cta-button login-submit">Create Account</button>
+                <p id="registerMsg" class="form-response login-error"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main app (hidden until logged in) -->
+    <div id="mainApp" class="hidden">
+
+        <header class="app-header">
+            <div class="header-logo">
+                <span>❖</span> DecodeLabs Intern
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-container" id="navMenu">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#overview" class="nav-link">Overview</a>
+                <span id="welcomeText" class="nav-welcome"></span>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </nav>
+        </header>
+
+        <div class="grid-layout-container">
+
+            <aside class="side-panel">
+                <div class="panel-section">
+                    <h3>Project Tracks</h3>
+                    <ul class="panel-list">
+                        <li><button class="filter-btn active" data-target="all">Show All</button></li>
+                        <li><button class="filter-btn" data-target="fundamentals">Fundamentals</button></li>
+                        <li><button class="filter-btn" data-target="pillars">Design Pillars</button></li>
+                    </ul>
+                </div>
+
+                <div class="panel-status-card">
+                    <p><strong>Progress</strong></p>
+                    <small>1 of 3 Pillars done</small>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill"></div>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="main-content" id="overview">
+
+                <section class="hero-section">
+                    <h1>Responsive Frontend Interface</h1>
+                    <p>Building a responsive web app using HTML, CSS, and basic JavaScript. No frameworks used.</p>
+                    <button class="cta-button">Get Started</button>
+                </section>
+
+                <!-- Project cards loaded from GET /api/projects -->
+                <section class="content-grid" id="projectContainer">
+                    <p class="loading-text">Loading projects...</p>
+                </section>
+
+            </main>
+        </div>
+
+        <footer class="app-footer">
+            <p>&copy; 2026 DecodeLabs Internship Program | Full Stack Development Track</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

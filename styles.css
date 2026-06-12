@@ -1,0 +1,493 @@
+/* colors and font variables */
+:root {
+    --mocha-mousse: #A5856F;
+    --ethereal-blue: #A0D4E0;
+    --moonlit-grey: #F2F0EA;
+    --dark-charcoal: #2A2825;
+    --card-bg: #FFFFFF;
+
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+
+    /* fluid font sizes using clamp so it scales between screen sizes */
+    --fluid-h1: clamp(1.8rem, 4vw + 1rem, 3rem);
+    --fluid-h2: clamp(1.3rem, 2.5vw + 0.8rem, 1.8rem);
+    --fluid-body: clamp(0.95rem, 0.5vw + 0.8rem, 1.1rem);
+}
+
+/* basic reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--fluid-body);
+    line-height: 1.6;
+    background-color: var(--moonlit-grey);
+    color: var(--dark-charcoal);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* ---- Header ---- */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dark-charcoal);
+    color: #fff;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--ethereal-blue);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #e2e2e2;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: var(--font-heading);
+    transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--ethereal-blue);
+}
+
+/* hamburger button - hidden on desktop */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: 0.3s;
+}
+
+/* ---- Buttons ---- */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--mocha-mousse);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* ---- Main grid layout (mobile first = single column) ---- */
+.grid-layout-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    flex: 1;
+}
+
+/* ---- Sidebar ---- */
+.side-panel {
+    background-color: #fff;
+    padding: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.panel-list {
+    list-style: none;
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid var(--mocha-mousse);
+    color: var(--mocha-mousse);
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: var(--font-heading);
+    font-weight: 500;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: var(--mocha-mousse);
+    color: #fff;
+}
+
+/* progress bar in sidebar */
+.panel-status-card {
+    margin-top: 2rem;
+    background-color: var(--moonlit-grey);
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.panel-status-card small {
+    color: #777;
+    display: block;
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar-bg {
+    background-color: #e0e0e0;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    background-color: var(--ethereal-blue);
+    width: 33%;
+    height: 100%;
+}
+
+/* ---- Main content area ---- */
+.main-content {
+    padding: 2rem 5%;
+}
+
+.hero-section {
+    background-color: var(--dark-charcoal);
+    color: #fff;
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 2.5rem;
+    border-left: 5px solid var(--mocha-mousse);
+}
+
+.hero-section h1 {
+    font-size: var(--fluid-h1);
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    margin-bottom: 1.5rem;
+    color: #d2d2d2;
+    max-width: 600px;
+}
+
+/* cards grid - single column on mobile */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.content-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--ethereal-blue);
+    transition: transform 0.3s;
+}
+
+.content-card:hover {
+    transform: translateY(-4px);
+}
+
+.card-icon {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--mocha-mousse);
+    margin-bottom: 0.5rem;
+}
+
+.content-card h2 {
+    font-size: var(--fluid-h2);
+    margin-bottom: 0.8rem;
+}
+
+/* ---- Contact Section (Project 2 - talks to backend) ---- */
+.contact-section {
+    background-color: #fff;
+    padding: 3rem 5%;
+    border-top: 1px solid #e0e0e0;
+}
+
+.contact-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-wrapper h2 {
+    font-size: var(--fluid-h2);
+    margin-bottom: 0.5rem;
+}
+
+.contact-wrapper > p {
+    color: #777;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.contact-wrapper code {
+    background: var(--moonlit-grey);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background: var(--moonlit-grey);
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--mocha-mousse);
+}
+
+.form-response {
+    margin-top: 1rem;
+    font-weight: 500;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+}
+
+.form-response.success { color: #2e7d32; }
+.form-response.error   { color: #c62828; }
+
+/* ---- Footer ---- */
+.app-footer {
+    background-color: var(--dark-charcoal);
+    color: #8c8c8c;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    border-top: 1px solid #3a3a3a;
+}
+
+/* ---- Mobile breakpoint (hamburger shows, nav hides) ---- */
+@media (max-width: 767px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-container {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--dark-charcoal);
+        padding: 1.5rem;
+        gap: 1.5rem;
+        border-top: 1px solid #3a3a3a;
+    }
+
+    .nav-container.open {
+        display: flex;
+    }
+}
+
+/* ---- Tablet breakpoint >= 768px ---- */
+@media (min-width: 768px) {
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .panel-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ---- Desktop breakpoint >= 1024px ---- */
+@media (min-width: 1024px) {
+    /* sidebar + main content side by side */
+    .grid-layout-container {
+        grid-template-columns: 260px 1fr;
+    }
+
+    .side-panel {
+        border-bottom: none;
+        border-right: 1px solid #e0e0e0;
+        min-height: calc(100vh - 70px);
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* ---- Login Page ---- */
+.login-page {
+    min-height: 100vh;
+    background-color: var(--dark-charcoal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.login-card {
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.login-logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--mocha-mousse);
+    margin-bottom: 1.5rem;
+}
+
+/* tab switcher */
+.auth-tabs {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 1.5rem;
+}
+
+.auth-tab {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 0.6rem;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #999;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.auth-tab.active {
+    color: var(--mocha-mousse);
+    border-bottom-color: var(--mocha-mousse);
+}
+
+.login-card h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.login-subtitle {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 1.8rem;
+}
+
+.login-submit {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.login-error {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* ---- Utility ---- */
+.hidden {
+    display: none !important;
+}
+
+/* welcome text in nav */
+.nav-welcome {
+    color: var(--ethereal-blue);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* logout button in nav */
+.logout-btn {
+    background: none;
+    border: 1px solid #e2e2e2;
+    color: #e2e2e2;
+    padding: 0.3rem 0.9rem;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: #e2e2e2;
+    color: var(--dark-charcoal);
+}
+
+/* "Loading projects..." text */
+.loading-text {
+    color: #999;
+    font-style: italic;
+    padding: 1rem 0;
+}
