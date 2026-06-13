@@ -11,7 +11,7 @@ Built with HTML, CSS, and Vanilla JavaScript.
 ## What it does
 
 - **Register** — new users create an account with a username and password via the Register tab. The form sends a POST request to the backend and shows a success or error message.
-- **Login** — existing users log in with their credentials. On success, the username is stored in localStorage and the dashboard loads.
+- **Login** — existing users log in with their credentials. On success, the dashboard loads.
 - **Course dashboard** — after login, 10 available courses are displayed as cards.
 - **Select courses** — clicking a card toggles it selected or deselected. Selected cards are visually highlighted.
 - **Save selections** — a Save button sends the selected course IDs to the backend via POST. The backend updates the user's document in MongoDB.
