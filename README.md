@@ -1,8 +1,10 @@
 # Project 1 — Course selector with Responsive Frontend Interface
 
+A simple project where users can register, log in, browse available courses, and save their enrolled selections.
+Data is stored in MongoDB.
 
 This repo contains the frontend project.
-Built with pure HTML, CSS, and Vanilla JavaScript.
+Built with HTML, CSS, and Vanilla JavaScript.
 
 ---
 
