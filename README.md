@@ -1,16 +1,15 @@
-# DecodeLabs | Project 1 — Responsive Frontend Interface
+# Project 1 — Course selector with Responsive Frontend Interface
 
-Part of the **DecodeLabs Internship Program (2026)** — Full Stack Development Track.
 
-This repo contains the frontend for the DecodeLabs Intern Portal.
-Built with pure HTML, CSS, and Vanilla JavaScript. No frameworks.
+This repo contains the frontend project.
+Built with pure HTML, CSS, and Vanilla JavaScript.
 
 ---
 
 ## What it does
 
 - Login and Register forms that talk to the backend API
-- Project dashboard that loads cards from the backend
+- Project dashboard that loads cards of come courses
 - Mobile-responsive layout (CSS Grid + Flexbox)
 - Sidebar with category filters
 - Hamburger menu for mobile
@@ -38,12 +37,11 @@ frontend/
 
 ## How to run
 
-This frontend is served by the backend server — it doesn't run on its own.
+This frontend is served by the backend server.
 
 1. Make sure the backend server is running (see the backend repo)
 2. Open `http://localhost:3000` in your browser
 
-> If you want to run it standalone with Live Server, you'll need to re-add CORS to the backend.
 
 ---
 
